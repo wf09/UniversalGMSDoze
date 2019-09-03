@@ -31,7 +31,7 @@ PROPFILE=true
 POSTFSDATA=false
 
 # Set to true if you need late_start service script
-LATESTARTSERVICE=false
+LATESTARTSERVICE=true
 
 ##########################################################################################
 # Replace list
@@ -123,7 +123,7 @@ REPLACE="
 
 print_modname() {
   ui_print " "
-  ui_print "- Universal GMS Doze Installer"
+  ui_print "* Universal GMS Doze Installer"
   ui_print " "
 }
 
@@ -134,7 +134,9 @@ on_install() {
   # Extend/change the logic to whatever you want
   ui_print "- Extracting module files"
   ui_print "- Inflating add-on"
+  ui_print "- Checking API (Min. API is 23)"
   unzip -o "$ZIPFILE" 'opt.sh' 'system/*' -d $MODPATH >&2
+  api_check
   cp -rf $MODPATH/opt.sh /data/adb/service.d/
   chmod 755 /data/adb/service.d/opt.sh
 }
@@ -155,3 +157,14 @@ set_permissions() {
 }
 
 # You can add more functions to assist your custom script code
+
+api_check() {
+  if [ "$API" -ge 23 ]; then
+  ui_print "- Reached minimum API requirement"
+  ui_print "- Continue installation"
+    break
+  else
+  ui_print "- Does not reached minimum API requirement"
+	abort "- Aborting"
+  fi
+}

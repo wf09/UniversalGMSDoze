@@ -3,9 +3,8 @@
 
 ## Installation Guides
 - API 23 or later is supported.
-- Either install from Magisk Manager or any custom recoveries.
-- Check whether BusyBox and SQLite is already installed.
 - Avoid to use similar modules or tweaks at once.
+- Either install from Magisk Manager or any custom recoveries.
 
 ## Troubleshooting
 - After flashing the module and reboot, wait around 90 seconds for make sure all scripts running well.

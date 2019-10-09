@@ -6,8 +6,9 @@
 # Sleep statements (delay execution);
 sleep 80
 
-# Disable Find My Device (in order to have optimized GMS for Android 9 or later);
+# Disable collective Device administrators;
 pm disable com.google.android.gms/com.google.android.gms.mdm.receivers.MdmDeviceAdminReceiver
+pm disable com.google.android.gms/com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
 
 # Unset BusyBox variable (krasCGQ);
 unset BB;
@@ -36,6 +37,9 @@ if [ "$($BB pidof com.google.android.gms.wearable | wc -l)" -eq "1" ]; then
 fi;
 
 # Doze setup services;
+su -c "pm enable com.google.android.gms/.ads.social.GcmSchedulerWakeupService"
+su -c "pm enable com.google.android.gms/.analytics.AnalyticsService"
+su -c "pm enable com.google.android.gms/.analytics.service.PlayLogMonitorIntervalService"
 su -c "pm enable com.google.android.gms/.update.SystemUpdateActivity"
 su -c "pm enable com.google.android.gms/.update.SystemUpdateService"
 su -c "pm enable com.google.android.gms/.update.SystemUpdateService\$ActiveReceiver"
@@ -46,25 +50,6 @@ su -c "pm enable com.google.android.gsf/.update.SystemUpdatePanoActivity"
 su -c "pm enable com.google.android.gsf/.update.SystemUpdateService"
 su -c "pm enable com.google.android.gsf/.update.SystemUpdateService\$Receiver"
 su -c "pm enable com.google.android.gsf/.update.SystemUpdateService\$SecretCodeReceiver"
-su -c "pm enable com.google.android.gms/com.google.android.gms.analytics.AnalyticsReceiver"
-su -c "pm enable com.google.android.gms/com.google.android.gms.analytics.AnalyticsService"
-su -c "pm enable com.google.android.gms/com.google.android.gms.analytics.AnalyticsTaskService"
-su -c "pm enable com.google.android.gms/com.google.android.gms.analytics.service.AnalyticsService"
-su -c "pm enable com.google.android.gms/com.google.android.gms.chimera.PersistentIntentOperationService"
-su -c "pm enable com.google.android.gms/com.google.android.gms.clearcut.debug.ClearcutDebugDumpService"
-su -c "pm enable com.google.android.gms/com.google.android.gms.common.stats.GmsCoreStatsService"
-su -c "pm enable com.google.android.gms/com.google.android.gms.mdm.receivers.MdmDeviceAdminReceiver"
-su -c "pm enable com.google.android.gms/com.google.android.gms.measurement.AppMeasurementJobService"
-su -c "pm enable com.google.android.gms/com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
-su -c "pm enable com.google.android.gms/com.google.android.gms.measurement.PackageMeasurementReceiver"
-su -c "pm enable com.google.android.gms/com.google.android.gms.measurement.PackageMeasurementService"
-su -c "pm enable com.google.android.gms/com.google.android.gms.measurement.service.MeasurementBrokerService"
-su -c "pm enable com.google.android.gms/com.google.android.location.internal.AnalyticsSamplerReceiver"
-
-# Trim selected partitions on boot;
-fstrim /data;
-fstrim /cache;
-fstrim /system;
 
 # Executing...
 # Done

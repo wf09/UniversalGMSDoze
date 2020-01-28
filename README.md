@@ -1,5 +1,5 @@
 # Universal GMS Doze
-*Systemlessly prevent unnecessary GMS running in the background, optimized and adjusted with additional modified services*
+*Prevent unnecessary GMS wakelocks running in the background, optimized and adjusted with additional modified services*
 
 ## Installation Guides
 - API 23 or later is supported.
@@ -7,13 +7,28 @@
 - Either install from Magisk Manager or any custom recoveries.
 
 ## Troubleshooting
-- After flashing the module and reboot, wait around 90 seconds for make sure all scripts running well.
-- Clear data for each apps that has delayed incoming messages issue with the module installed.
-- Ignore if Find My Device deactivated (not dissapeared) by default if GMS already optimized for Android 9 or later.
-- OEM usually has different permissions regarding App Ops, consider and test it with caution if you want to add them to blocking list.
+- Does not guarantee for any Google apps (GApps) package which contains modified XML by default or by the author(s).
+- Need to wait 90 seconds or more to make sure the scripts executed well.
+- Quick guide for how to fix delayed incoming messages issue, execute the scripts in terminal then reboot:
+```
+> su
+> cd /data/data
+> find . -type f -name '*gms*' -delete
+```
 
 ## Development Supports
-- [Donate](https://paypal.me/gloeyisk)
-- [GitHub](https://github.com/gloeyisk/UniversalGMSDoze)
-- [Support](https://forum.xda-developers.com/apps/magisk/module-universal-gms-doze-t3853710)
-- [Telegram](https://t.me/GLdppc)
+- **Donations:**
+  - BCA (Indonesia) 1390195385
+  - [PayPal](https://paypal.me/gloeyisk)
+- **Mirror Links:**
+  - [Telegram Channel](https://t.me/GLdppc)
+  - [SourceForge](https://sourceforge.net/projects/gldpsf/files/magisk_modules/)
+- **Source Code:**
+  - [GitHub](https://github.com/gloeyisk/UniversalGMSDoze)
+- **Support Thread:**
+  - [XDA-Developers](https://forum.xda-developers.com/apps/magisk/module-universal-gms-doze-t3853710)
+
+## Credits
+- **@topjohnwu**; [Magisk](https://github.com/topjohnwu/Magisk)
+- **@Zackptg5**; [MMT-Extended](https://github.com/Zackptg5/MMT-Extended)
+- **Contributors and Donators**

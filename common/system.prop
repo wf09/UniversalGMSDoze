@@ -1,9 +1,0 @@
-# This file will be read by resetprop
-# Example: Change dpi
-# ro.sf.lcd_density=320
-
-# Additional modified props
-ro.config.nocheckin=1
-ro.kernel.checkjni=0
-ro.kernel.android.checkjni=0
-wifi.supplicant_scan_interval=360

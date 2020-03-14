@@ -1,6 +1,7 @@
 id=UniversalGMSDoze
 name=Universal GMS Doze
-version=v1.7.5
-versionCode=175
+version=v1.7.6
+versionCode=176
 author=gloeyisk
 description=Prevent unnecessary GMS wakelocks running in the background, optimized and adjusted with additional modified services
+donate=https://paypal.me/gloeyisk
